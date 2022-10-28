@@ -11,7 +11,7 @@ public class OrderConverter {
     public Order toEntity(OrderDTO orderDTO) {
         Order order = null;
         if (orderDTO != null) {
-            order = new Order(orderDTO.getId(),orderDTO.getPane(),orderDTO.getKg(),orderDTO.getTipoOrdine());
+            order = new Order(orderDTO.getId(),orderDTO.getPane(),orderDTO.getKg(),orderDTO.getTipoOrdine(),orderDTO.getUser());
         }
         return order;
     }
@@ -20,7 +20,7 @@ public class OrderConverter {
     public OrderDTO toDTO(Order order) {
         OrderDTO orderDTO = null;
         if (order != null) {
-            orderDTO = new OrderDTO(order.getId(),order.getPane(),order.getKg(),order.getTipoOrdine());
+            orderDTO = new OrderDTO(order.getId(),order.getPane(),order.getKg(),order.getTipoOrdine(),order.getUser());
 
         }
         return orderDTO;

@@ -12,5 +12,6 @@ public class OrderDTO {
     private Pane pane;
     private double kg;
     private OrderType tipoOrdine;
+    private User user;
 
 }
