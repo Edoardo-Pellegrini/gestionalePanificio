@@ -2,15 +2,17 @@ package com.gestionalePanificio.gestionalePanificio;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/order")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UserController {
+public class OrderController {
+
+
     @Autowired
-    private UserService service;
+    private OrderService service;
+
     @GetMapping("/getall")
-    public Iterable<UserDTO> getAll(){
+    public Iterable<OrderDTO> getAll() {
         return service.getAll();
     }
 
@@ -20,24 +22,21 @@ public class UserController {
     }
 
     @PutMapping("/update")
-    public UserDTO update(@RequestBody UserDTO dto){
+    public OrderDTO update(@RequestBody OrderDTO dto) {
         service.update(dto);
         return dto;
     }
 
     @PostMapping("/insert")
-    public UserDTO insert (@RequestBody UserDTO dto) {
+    public OrderDTO insert(@RequestBody OrderDTO dto) {
         service.insert(dto);
         return dto;
     }
 
     @GetMapping("/read")
-    public UserDTO read(long id) {
+    public OrderDTO read(long id) {
         return service.read(id);
     }
-    @PostMapping(value = "/login")
-    public UserDTO login( @RequestBody LoginDTO loginDTO ) {
-        return service.findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
-    }
+
 
 }
